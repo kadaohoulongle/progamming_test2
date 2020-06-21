@@ -12,12 +12,10 @@ private:
 public:
 	Keys();
 
-	void insertKey(keytype k);//ÔÚ±íÖĞ²åÈëÒ»¸ökey 
+	void insertKey(keytype k);//é¦ã„¨ã€ƒæ¶“î…Ÿå½ƒéãƒ¤ç«´æ¶“çŒ­ey
+	Keycell findKey(string kkey);//é€šè¿‡keyå€¼æŸ¥æ‰¾ ,æˆåŠŸååˆ é™¤ ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚1546546
 
-	Keycell findKey(string kkey);//Í¨¹ıkeyÖµ²éÕÒ ,³É¹¦ºóÉ¾³ı ¡£¡£¡£¡£¡£¡£¡£1546546
+	void printKeys()const;//å¨´å¬­ç˜¯é¢ï¿½
 
-	void printKeys()const;//²âÊÔÓÃ 
-
-	void findGoods(long long goodsId)const;//¸ù¾İidÑ°ÕÒ¿ìµİ
-
+	void findGoods(long long goodsId)const;//éè§„åµidç€µç»˜å£˜è¹‡î‚¦ï¿½ï¿½
 };
