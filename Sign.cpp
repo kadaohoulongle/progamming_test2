@@ -5,6 +5,7 @@ int recordMenu = 1;//记录Menu是否继续循环
 int recordPostsign = 1;//记录PositionSgin是否继续循环
 int recordWork = 1;//记录Work是否循环
 //身份的选择：快递员和收件人
+
 int Menu() {
 	cout << "***********************************************************************************************" << endl;
 	Sleep(300);

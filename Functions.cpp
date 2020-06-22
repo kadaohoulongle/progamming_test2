@@ -1,6 +1,7 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 #include"Functions.h"
+#include<string>
 using namespace std;
 PostMan* postman[100];
 Client* client[100];
@@ -8,14 +9,21 @@ Goods* goods[100];
 Box* box[100];
 Keys keys;
 Keycell* keycell[100];
+string postTitle;
+string clientTitle;
+string goodsTitle;
+string keyTitle;
 
 void getPostMan()
 {
-	string a, b, c, e, f;
+	string a, b, c, e, f,title;
 	int d;
+
 	fstream fio("D:\\postman.txt", ios::in | ios::out);
 	if (fio.is_open())
 	{
+		getline(fio, title);
+		postTitle = title;
 		for (int i = 0; i < 100; i++)
 		{
 			fio >> a >> b >> c >> d >> e >> f;
@@ -31,11 +39,13 @@ void getPostMan()
 
 void getClient()
 {
-	string a, b, c, d;
+	string a, b, c, d,title;
 	int e;
 	fstream fio("D:\\client.txt", ios::in | ios::out);
 	if (fio.is_open())
 	{
+		getline(fio, title);
+		clientTitle = title;
 		for (int i = 0; i < 100; i++)
 		{
 			fio >> a >> b >> c >> d >> e;
@@ -51,11 +61,13 @@ void getClient()
 
 void getGoods()
 {
-	string a, b;
+	string a, b,title;
 	int c, d;
 	fstream fio("D:\\goods.txt", ios::in | ios::out);
 	if (fio.is_open())
 	{
+		getline(fio, title);
+		goodsTitle = title;
 		for (int i = 0; i < 100; i++)
 		{
 			fio >> a >> b >> c >> d;
@@ -73,6 +85,7 @@ void savePostman() {
 	ofstream fw;
 	fw.open("D:\\postman.txt", ios::out);
 	if (fw.is_open()) {
+		fw << postTitle << endl << endl;
 		for (int i = 0; postman[i] != NULL; i++) {
 			fw << postman[i]->getId() << "\t"
 				<< postman[i]->getTel() << "\t"
@@ -89,6 +102,7 @@ void saveClient() {
 	ofstream fw;
 	fw.open("D:\\client.txt", ios::out);
 	if (fw.is_open()) {
+		fw << clientTitle << endl;
 		for (int i = 0; client[i] != NULL; i++) {
 			fw << client[i]->getId() << "\t"
 				<< client[i]->getTel() << "\t"
@@ -103,6 +117,7 @@ void saveGood() {
 	ofstream fw;
 	fw.open("D:\\goods.txt", ios::out);
 	if (fw.is_open()) {
+		fw << goodsTitle << endl;
 		for (int i = 0; goods[i] != NULL; i++) {
 			fw << goods[i]->getpName() << "\t"
 				<< goods[i]->getrName() << "\t"
@@ -115,6 +130,7 @@ void saveKey() {
 	ofstream fw;
 	fw.open("D:\\key.txt", ios::out);
 	if (fw.is_open()) {
+		fw << keyTitle << endl;
 		for (int i = 0; keycell[i] == NULL; i++) {
 			fw << keycell[i]->getKey()
 				<< "\t" << keycell[i]->getGoodsId()
@@ -125,12 +141,14 @@ void saveKey() {
 }
 
 void getKeycell() {
-	string a;
+	string a,title;
 	long long b;
 	int c,d;
 	ifstream fr;
 	fr.open("key.txt", ios::in);
 	if (fr.is_open()) {
+		getline(fr, title);
+		keyTitle = title;
 		for (int i = 0; i < 100; i++) {
 			fr >> a >> b >> c>>d;
 			keycell[i] = new Keycell(a, b, c, d);

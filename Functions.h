@@ -11,6 +11,10 @@ extern Goods* goods[100];
 extern Box* box[100];
 extern Keys keys;
 extern Keycell* keycell[100];
+extern string postTitle;
+extern string clientTitle;
+extern string goodsTitle;
+extern string keyTitle;
 
 void getPostMan();
 void getClient();
