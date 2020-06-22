@@ -1,4 +1,5 @@
 ﻿#include "Keycell.h"
+#include <fstream>
 map<string, bool>keyMap;
 Keycell::Keycell(string k, long long gId, int bId, int inDex) :key(k), goodsId(gId), boxId(bId), index(inDex), next(NULL)
 {
@@ -8,6 +9,20 @@ void Keycell::setRandomKey()
 {
 	srand((int)time(0));
 	char str[10];
+	string s1;
+	long long t1;
+	int t2;
+	int t3;
+	fstream fio;
+	if (fio.is_open())
+	{
+		do
+		{
+			fio.open("D:\\key.txt", ios::in | ios::out);
+			fio >> s1 >> t1 >> t2 >> t3;
+			keyMap[s1] = 1;
+		} while (!fio.eof());
+	}
 	while (1)
 	{
 		for (int i = 0; i < 6; ++i)
